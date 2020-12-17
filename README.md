@@ -3,6 +3,7 @@
 This is built using `svelte-kit` from `svelte@next`.
 
 The repository also includes Tailwindcss, eslint, and prettier.
+
 Right now eslint is disabled for `*.svelte` files due to an [issue with prettier-plugin-svelte](https://github.com/sveltejs/prettier-plugin-svelte/issues/57)
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
