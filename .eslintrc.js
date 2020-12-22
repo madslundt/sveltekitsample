@@ -1,3 +1,6 @@
+const eslintSveltePreprocess = require('eslint-svelte3-preprocess')
+const svelteConfig = require('./svelte.config')
+
 module.exports = {
 	env: {
 		browser: true,
@@ -7,7 +10,8 @@ module.exports = {
 	extends: ['eslint:recommended', 'airbnb-base', 'eslint-config-prettier'],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		ecmaVersion: 12,
+		createDefaultProgram: true,
+		ecmaVersion: 2020,
 		sourceType: 'module',
 	},
 	plugins: ['@typescript-eslint', 'svelte3', 'eslint-plugin-prettier'],
@@ -16,6 +20,14 @@ module.exports = {
 	// 	{
 	// 		files: ['*.svelte'],
 	// 		processor: 'svelte3/svelte3',
+	// 	},
+	// 	{
+	// 		files: ['*.ts', '*.json'],
+	// 		extends: [
+	// 			'plugin:@typescript-eslint/recommended',
+	// 			'plugin:prettier/recommended',
+	// 			'prettier/@typescript-eslint',
+	// 		],
 	// 	},
 	// ],
 	rules: {
@@ -26,5 +38,8 @@ module.exports = {
 			},
 			{ usePrettierrc: true },
 		],
+	},
+	settings: {
+		'svelte3/preprocess': eslintSveltePreprocess(svelteConfig.preprocess),
 	},
 }
